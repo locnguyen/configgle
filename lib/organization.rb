@@ -1,3 +1,5 @@
+require 'data_mapper'
+
 class Organization
   include DataMapper::Resource
 
@@ -9,5 +11,15 @@ class Organization
   property :phone_number, String
 
   has n, :events
-  belongs_to :rufiggle
+  belongs_to :configgle
+
+  attr_reader :members
+
+  def initialize
+    @members = []
+  end
+
+  def add_member(member)
+    @members << member
+  end
 end

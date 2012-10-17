@@ -6,6 +6,6 @@ Gem:: Specification.new do |s|
   s.description = 'A gem supplying the domain model for configgle'
   s.authors     = ['Loc Nguyen']
   s.email       = 'loc@fillintheapp.com'
-  s.files       = ['lib/configgle.rb']
+  s.files       = Dir['lib/**/*.rb']
 
 end

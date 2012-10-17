@@ -11,4 +11,8 @@ class Event
   property :description, String
 
   belongs_to :organization
+
+  def initialize(organization)
+    @organization = organization
+  end
 end
