@@ -12,7 +12,8 @@ class Event
 
   belongs_to :organization
 
-  def initialize(organization)
-    @organization = organization
+  def initialize(attributes = {})
+    raise(ArugmentError, 'Cannot create event without an Organization', caller) if attributes[:organization].nil?
+    attributes.each { |k, v| instance_variable_set("@#{k}", v) unless v.nil? }
   end
 end

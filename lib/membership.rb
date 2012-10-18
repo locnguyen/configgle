@@ -7,6 +7,9 @@ class Membership
   property :member_id, Integer
   property :organization_id, Integer
 
+  belongs_to :organization, :key => true
+  belongs_to :member, :key => true
+
   def initialize(args = {})
     @member = args[:member]
     @organization = args[:organization]

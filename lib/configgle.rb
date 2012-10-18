@@ -8,10 +8,4 @@ class Configgle
   property :id, Serial
 
   has n, :organizations
-
-  def self.hi
-    msg = 'Hello world!'
-    puts msg
-    msg
-  end
 end
