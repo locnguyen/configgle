@@ -9,6 +9,9 @@ class Member
   property :email, String
   property :phone_number, String
 
+  has n, :memberships
+  has n, :organizations, :through => :memberships
+
   attr_reader :memberships
 
   def initialize
