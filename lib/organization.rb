@@ -1,9 +1,7 @@
-require 'forwardable'
 require 'data_mapper'
 require 'event'
 
 class Organization
-  extend Forwardable
   include DataMapper::Resource
 
   property :id, Serial
