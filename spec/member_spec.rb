@@ -12,12 +12,12 @@ describe Member do
   end
 
   it "should have these DataMapper relationships" do
-      should have_many :memberships
-      should have_many(:organizations).through(:memberships)
+    should have_many :memberships
+    should have_many(:organizations).through(:memberships)
   end
 
   it "should have these DataMapper relationships" do
-    @it.should have_many(:organizations).through(:memberships)
+    should have_many(:organizations).through(:memberships)
   end
 
   it "can belong to more than one organization" do
