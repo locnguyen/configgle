@@ -16,6 +16,10 @@ describe Member do
       should have_many(:organizations).through(:memberships)
   end
 
+  it "should have these DataMapper relationships" do
+    @it.should have_many(:organizations).through(:memberships)
+  end
+
   it "can belong to more than one organization" do
     subject.add_membership(double("org1"))
     subject.add_membership(double("org2"))

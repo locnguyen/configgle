@@ -17,6 +17,8 @@ describe Organization do
     should have_many :memberships
     should have_many(:members).through(:memberships)
     should belong_to :configgle
+    should have_many :memberships
+    should have_many(:members).through(:memberships)
   end
 
   it "can have many members" do
