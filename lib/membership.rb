@@ -6,6 +6,7 @@ class Membership
   property :id, Serial
   property :member_id, Integer
   property :organization_id, Integer
+  property :active, Boolean
 
   belongs_to :organization, :key => true
   belongs_to :member, :key => true

@@ -8,6 +8,8 @@ describe Membership, "between some organization and member" do
   it { should have_property :id }
   it { should have_property :member_id }
   it { should have_property :organization_id }
+  it { should have_property :active }
+
   it { should belong_to :organization }
   it { should belong_to :member }
 
