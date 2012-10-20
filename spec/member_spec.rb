@@ -10,7 +10,7 @@ describe Member do
   it { should have_property :phone_number }
   it { should have_many :memberships }
   it { should have_many(:organizations).through(:memberships) }
-
+  
   it "can belong to more than one organization" do
     subject.add_membership(double("org1"))
     subject.add_membership(double("org2"))

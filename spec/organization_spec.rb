@@ -2,9 +2,6 @@ require 'spec_helper'
 require 'organization'
 
 describe Organization do
-  
-  it { should have_property :id }
-  it { should have_property :name }
   it { should have_property :homepage }
   it { should have_property :facebook }
   it { should have_property :twitter }
