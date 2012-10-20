@@ -2,22 +2,17 @@ require 'spec_helper'
 require 'organization'
 
 describe Organization do
-
-  it "should have these DataMapper properties" do
-    should have_property :id
-    should have_property :name
-    should have_property :homepage
-    should have_property :facebook
-    should have_property :twitter
-    should have_property :phone_number
-  end
-
-  it "should have these DataMapper relationships" do
-    should have_many :events
-    should have_many :memberships
-    should have_many(:members).through(:memberships)
-    should belong_to :configgle
-  end
+  
+  it { should have_property :id }
+  it { should have_property :name }
+  it { should have_property :homepage }
+  it { should have_property :facebook }
+  it { should have_property :twitter }
+  it { should have_property :phone_number }
+  it { should have_many :events }
+  it { should have_many :memberships }
+  it { should have_many(:members).through(:memberships) }
+  it { should belong_to :configgle }
 
   it "can have many members" do
     subject.add_member(double('member1'))
