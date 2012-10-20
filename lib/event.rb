@@ -19,6 +19,11 @@ class Event
   end
 
   def is_over?
-    Date.new > @end_date
+    Date.today > @end_date
+  end
+
+  def is_happening_now?
+    d = Date.today
+    d >= @start_date and d <= @end_date
   end
 end

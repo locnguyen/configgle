@@ -24,8 +24,29 @@ describe Event, "belonging to some organization" do
   end
 
   it "is over when today is past the end date" do
-    subject.end_date = Date.new - 1
+    subject.end_date = Date.today - 1
     subject.is_over?.should be_true
+  end
+
+  describe "is happening now when" do
+
+    it "has a start date that is before today and end date is after" do
+      subject.start_date = Date.today - 5
+      subject.end_date = Date.today + 5
+      subject.is_happening_now?.should be_true
+    end
+
+    it "has a start date this is today" do
+      subject.end_date = Date.today + 1
+      subject.start_date =  Date.today
+      subject.is_happening_now?.should be_true
+    end
+
+    it "has an end date that is today" do
+      subject.start_date = Date.today - 1
+      subject.end_date = Date.today
+      subject.is_happening_now?.should be_true
+    end
   end
 
 end
