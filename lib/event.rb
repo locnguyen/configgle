@@ -12,6 +12,7 @@ class Event
   property :capacity, Integer
 
   belongs_to :organization
+  has n, :registrations
 
   def initialize(attributes = {})
     raise(ArugmentError, 'Cannot create event without an Organization', caller) if attributes[:organization].nil?

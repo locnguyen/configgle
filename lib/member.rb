@@ -11,8 +11,9 @@ class Member
 
   has n, :memberships
   has n, :organizations, :through => :memberships
+  has n, :registrations
 
-  attr_reader :memberships
+  attr_accessor :id, :first_name, :last_name, :email, :phone_number
 
   def initialize
     @memberships = []

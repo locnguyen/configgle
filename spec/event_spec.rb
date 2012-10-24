@@ -14,6 +14,7 @@ describe Event, "belonging to some organization" do
   it { should have_property :capacity }
 
   it { should belong_to :organization }
+  it { should have_many :registrations }
 
   it "can be created with an organization" do
     should_not be_nil
