@@ -1,4 +1,6 @@
 require 'data_mapper'
+require 'event'
+require 'member'
 
 class Registration
   include DataMapper::Resource

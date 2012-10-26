@@ -1,22 +1,25 @@
 require 'spec_helper'
 require 'organization'
+require 'event'
+require 'member'
 
 describe Organization do
 
-  it { should have_property :id }
+  it { should have_property(:id).of_type(DataMapper::Property::Serial) }
   it { should have_property :name }
   it { should have_property :homepage }
   it { should have_property :facebook }
   it { should have_property :twitter }
   it { should have_property :phone_number }
+
   it { should have_many :events }
   it { should have_many :memberships }
   it { should have_many(:members).through(:memberships) }
   it { should belong_to :configgle }
 
   it "can have many members" do
-    subject.add_member(double('member1'))
-    subject.add_member(double('member2'))
+    subject.add_member Member.new
+    subject.add_member Member.new
     subject.members.size.should equal 2
   end
 
@@ -42,8 +45,8 @@ describe Organization do
   end
 
   it "tells the correct number of events for the organization" do
-    subject.events << double("event1")
-    subject.events << double("event2")
+    subject.events << subject.init_event {}
+    subject.events << subject.init_event {}
     subject.total_events.should == 2
   end
 

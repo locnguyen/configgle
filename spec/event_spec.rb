@@ -1,11 +1,12 @@
 require 'spec_helper'
 require 'event'
+require 'organization'
 
 describe Event, "belonging to some organization" do
 
-  subject { Event.new({ organization: double('organization') }) }
+  subject { Event.new({ organization: Organization.new }) }
 
-  it { should have_property :id }
+  it { should have_property(:id).of_type(DataMapper::Property::Serial) }
   it { should have_property :name }
   it { should have_property :start_date }
   it { should have_property :end_date }
