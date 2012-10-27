@@ -10,6 +10,7 @@ class Registration
 
   belongs_to :event
   belongs_to :member
+  belongs_to :registration_template
 
   attr_reader :event, :member, :completed_date
 

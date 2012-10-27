@@ -1,4 +1,6 @@
 require 'data_mapper'
+require 'membership'
+require 'organization'
 
 class Member
   include DataMapper::Resource
@@ -22,6 +24,6 @@ class Member
   end
 
   def add_membership(organization)
-    @memberships << organization
+    @memberships << Membership.new(member: self, organization: organization)
   end
 end
