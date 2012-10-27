@@ -16,6 +16,7 @@ describe Event, "belonging to some organization" do
 
   it { should belong_to :organization }
   it { should have_many :registrations }
+  it { should have_many :registration_templates }
 
   it "can be created with an organization" do
     should_not be_nil
@@ -30,8 +31,7 @@ describe Event, "belonging to some organization" do
     subject.is_over?.should be_true
   end
 
-  describe "is happening now when" do
-
+  context "is happening now when" do
     it "has a start date that is before today and end date is after" do
       subject.start_date = Date.today - 5
       subject.end_date = Date.today + 5
@@ -51,4 +51,16 @@ describe Event, "belonging to some organization" do
     end
   end
 
+  context "manages registration templates" do
+    it "creates a template for the event" do
+      tmpl = subject.create_registration_template(event: subject)
+      tmpl.should be
+    end
+
+    it "creates and adds a template to the event" do
+      tmpl_size = subject.registration_templates.size
+      tmpl = subject.create_and_add_registration_template(event: subject)
+      tmpl_size.should be < subject.registration_templates.size
+    end
+  end
 end

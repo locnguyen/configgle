@@ -17,6 +17,7 @@ describe Registration do
 
   it { should belong_to :event }
   it { should belong_to :member }
+  it { should belong_to :registration_template }
 
   it "cannot not be created without an event" do
     expect {
