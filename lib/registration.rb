@@ -11,7 +11,7 @@ class Registration
   belongs_to :event
   belongs_to :member
 
-  attr_accessor :event, :member, :completed_date
+  attr_reader :event, :member, :completed_date
 
   def initialize(attributes = {})
     raise(ArgumentError, 'Need an event to create a registration', caller) if attributes[:event].nil?

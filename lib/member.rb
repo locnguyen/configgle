@@ -13,9 +13,11 @@ class Member
   has n, :organizations, :through => :memberships
   has n, :registrations
 
-  attr_accessor :id, :first_name, :last_name, :email, :phone_number
+  attr_reader :id, :first_name, :last_name, :email, :phone_number, :memberships, :registrations
 
   def initialize
+    @registrations = []
+    @organizations = []
     @memberships = []
   end
 

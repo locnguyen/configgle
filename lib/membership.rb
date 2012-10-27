@@ -11,6 +11,8 @@ class Membership
   belongs_to :organization, :key => true
   belongs_to :member, :key => true
 
+  attr_reader :member, :organization
+
   def initialize(args = {})
     @member = args[:member]
     @organization = args[:organization]

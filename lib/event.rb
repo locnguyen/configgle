@@ -13,6 +13,7 @@ class Event
 
   belongs_to :organization
   has n, :registrations
+  attr_reader :name, :start_date, :end_date, :homepage, :description, :capacity
 
   def initialize(attributes = {})
     raise(ArugmentError, 'Cannot create event without an Organization', caller) if attributes[:organization].nil?

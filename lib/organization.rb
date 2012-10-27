@@ -16,8 +16,7 @@ class Organization
   has n, :members, :through => :memberships
   belongs_to :configgle
 
-  attr_reader :members
-  attr_reader :events
+  attr_reader :members, :events
 
   def initialize
     @members = []
